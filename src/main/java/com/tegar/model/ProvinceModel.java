@@ -5,13 +5,13 @@ import java.io.Serializable;
 public class ProvinceModel implements Serializable{
 	private static final long serialVersionUID = -5084850085018662647L;
 	
-	private RajaOngkirModel rajaongkir;
+	private RajaOngkirModelProvince rajaongkir;
 
-	public RajaOngkirModel getRajaongkir() {
+	public RajaOngkirModelProvince getRajaongkir() {
 		return rajaongkir;
 	}
 
-	public void setRajaongkir(RajaOngkirModel rajaongkir) {
+	public void setRajaongkir(RajaOngkirModelProvince rajaongkir) {
 		this.rajaongkir = rajaongkir;
 	}
 
@@ -19,7 +19,7 @@ public class ProvinceModel implements Serializable{
 		return serialVersionUID;
 	}
 
-	public ProvinceModel(RajaOngkirModel rajaongkir) {
+	public ProvinceModel(RajaOngkirModelProvince rajaongkir) {
 		super();
 		this.rajaongkir = rajaongkir;
 	}

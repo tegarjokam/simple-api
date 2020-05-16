@@ -3,7 +3,7 @@ package com.tegar.model;
 import java.io.Serializable;
 import java.util.List;
 
-public class RajaOngkirModel implements Serializable{
+public class RajaOngkirModelProvince implements Serializable{
 	private static final long serialVersionUID = -3095910009165734896L;
 	
 	private List<String> query;
@@ -40,14 +40,14 @@ public class RajaOngkirModel implements Serializable{
 		return serialVersionUID;
 	}
 
-	public RajaOngkirModel(List<String> query, StatusModel status, List<ProvinceResultsModel> results) {
+	public RajaOngkirModelProvince(List<String> query, StatusModel status, List<ProvinceResultsModel> results) {
 		super();
 		this.query = query;
 		this.status = status;
 		this.results = results;
 	}
 
-	public RajaOngkirModel() {
+	public RajaOngkirModelProvince() {
 		super();
 	}
 
