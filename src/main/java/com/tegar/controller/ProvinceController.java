@@ -10,11 +10,14 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.tegar.model.ProvinceModel;
 import com.tegar.model.ProvinceResultsModel;
+import com.tegar.service.ProvinceService;
 
 @RestController
 @RequestMapping("/api/rest/v1/province")
@@ -25,6 +28,9 @@ public class ProvinceController {
 	
 	@Autowired
 	private RestTemplate restTemplate;
+	
+	@Autowired
+	private ProvinceService provinceService;
 	
 	@GetMapping("/")
 	public ResponseEntity<String> getProvince() {
@@ -37,15 +43,16 @@ public class ProvinceController {
 		return response;
 	}
 	
-	@GetMapping("/getObject")
-	public List<ProvinceResultsModel> tryToGetObject() {
+	@GetMapping
+	@ResponseBody
+	public List<ProvinceResultsModel> searchProvinceByName(@RequestParam(name = "name") String name) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("key", apiKey);
 		HttpEntity<ProvinceModel> entity = new HttpEntity<>(headers);
 		
 		ResponseEntity<ProvinceModel> response = 
 				restTemplate.exchange("https://api.rajaongkir.com/starter/province", HttpMethod.GET, entity, ProvinceModel.class);
-		
-		return response.getBody().getRajaongkir().getResults();
+		System.out.println("Nama Province yg dicari = " + name);
+		return provinceService.searchByName(response.getBody().getRajaongkir().getResults(), name);
 	}
 }
