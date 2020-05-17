@@ -32,7 +32,12 @@ public class ProvinceController {
 	@Autowired
 	private ProvinceService provinceService;
 	
-	@GetMapping("/")
+	/**
+	 * Get all data Province in RajaOngkir API
+	 * 
+	 * @return
+	 */
+	@GetMapping("/test")
 	public ResponseEntity<String> getProvince() {
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("key", apiKey);
@@ -43,6 +48,13 @@ public class ProvinceController {
 		return response;
 	}
 	
+	
+	/**
+	 * Search Province by Name in RajaOngkir API
+	 * 
+	 * @param name
+	 * @return
+	 */
 	@GetMapping
 	@ResponseBody
 	public List<ProvinceResultsModel> searchProvinceByName(@RequestParam(name = "name") String name) {
@@ -52,7 +64,7 @@ public class ProvinceController {
 		
 		ResponseEntity<ProvinceModel> response = 
 				restTemplate.exchange("https://api.rajaongkir.com/starter/province", HttpMethod.GET, entity, ProvinceModel.class);
-		System.out.println("Nama Province yg dicari = " + name);
+
 		return provinceService.searchByName(response.getBody().getRajaongkir().getResults(), name);
 	}
 }

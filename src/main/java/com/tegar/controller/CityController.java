@@ -32,7 +32,12 @@ public class CityController {
 	@Autowired
 	private CityService cityService;
 	
-	@GetMapping("/")
+	/**
+	 * Get all data City in RajaOngkir API
+	 * 
+	 * @return
+	 */
+	@GetMapping("/test")
 	public ResponseEntity<String> getCity() {
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("key", apiKey);
@@ -43,6 +48,12 @@ public class CityController {
 		return response;
 	}
 	
+	/**
+	 * Search City by Name in RajaOngkir API
+	 * 
+	 * @param name
+	 * @return
+	 */
 	@GetMapping
 	@ResponseBody
 	public List<CityResultsModel> searchCityByName(@RequestParam(name = "name") String name) {
@@ -52,7 +63,7 @@ public class CityController {
 		
 		ResponseEntity<CityModel> response = 
 				restTemplate.exchange("https://api.rajaongkir.com/starter/city", HttpMethod.GET, entity, CityModel.class);
-		System.out.println("Nama City yg dicari = " + name);
+
 		return cityService.searchByName(response.getBody().getRajaongkir().getResults(), name);
 	}
 
