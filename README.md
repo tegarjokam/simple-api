@@ -13,7 +13,7 @@ This project is a Simple API Project to search city and province in indonesia.
 Module Name | Path | HTTP Method | Function |
 --- | --- | --- | --- |
 City | /api/rest/v1/city?name={yourcity} | GET | for search city by city name |
-Province | /api/rest/v1/city?name={yourprovince} | GET | for search province by province name |
+Province | /api/rest/v1/province?name={yourprovince} | GET | for search province by province name |
 
 ## Response Data
 **City**
