@@ -33,7 +33,7 @@ public class CityController {
 	private CityService cityService;
 	
 	/**
-	 * Get all data City in RajaOngkir API
+	 * test City data from RajaOngkir API
 	 * 
 	 * @return
 	 */

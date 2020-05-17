@@ -33,7 +33,7 @@ public class ProvinceController {
 	private ProvinceService provinceService;
 	
 	/**
-	 * Get all data Province in RajaOngkir API
+	 * test Province data in RajaOngkir API
 	 * 
 	 * @return
 	 */
