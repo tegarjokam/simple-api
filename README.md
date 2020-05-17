@@ -40,6 +40,9 @@ Province | /api/rest/v1/city?name={yourprovince} | GET | for search province by 
 ]
 ```
 
+## Where's data from ?
+The data from [Rajaongkir API](https://rajaongkir.com/dokumentasi/starter)
+
 ## How to use it ?
 1. First clone this repository
 2. Open your IDE(STS is recommended)
